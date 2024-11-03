@@ -1,20 +1,19 @@
 import { addEditor, runCode, getSave } from "/js/global.js";
 
 const desc = `
-Return if the parameter number is even or odd
+Return if parameter str is capitalized or not
 
-True being even
-False being odd
+Hint: use the .substring method to get the first char of a string
 `
 
-const name = "evenOrOdd"
+const name = "isCapital"
 const parent = "intro"
 const lang = "javascript"
 
 document.title = "CodingRat Intro to JS | " + name
 
-const editor = addEditor(document.body, "Even or Odd", "Intro to JS", "../", desc, "../sleepIn/", "../gradeFinder/")
-const defaultCode = `function evenOrOdd(num) {
+const editor = addEditor(document.body, "Is Capital", "Intro to JS", "../", desc, "../gradeFinder/", "../validatePass/")
+const defaultCode = `function isCapital(str) {
 
 }`
 
@@ -23,16 +22,24 @@ let data = getSave(name, parent, lang, editor, defaultCode)
 
 const testCases = [
     {
-        expected: false,
-        call: `${name}(5)`
+        expected: true,
+        call: `${name}("Hello")`
     },
     {
         expected: true,
-        call: `${name}(4)`
+        call: `${name}("World")`
     },
     {
         expected: false,
-        call: `${name}(3)`
+        call: `${name}("hello")`
+    },
+    {
+        expected: false,
+        call: `${name}("world")`
+    },
+    {
+        expected: false,
+        call: `${name}("test")`
     },
 ]
 
@@ -49,3 +56,4 @@ document.getElementById("reset").onclick = () => {
     editor.setValue(defaultCode)
     runCode(testCases, editor, data, name, parent, lang)
 }
+

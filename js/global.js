@@ -23,7 +23,6 @@ function addLink(label, href) {
     back.append(link)
 }
 
-addLink("Settings", "/settings")
 
 export function addGrid(parent) {
     const grid = document.createElement("div")
@@ -123,15 +122,75 @@ export function addEditor(parent, head, p, pLink, desc, prev, next) {
     col2.append(nav)
 
     
-
     editDiv.append(col2)
+
+    const col3 = document.createElement("div")
+    col3.style.paddingRight = "0"
+    col3.style.paddingLeft = "0"
+    col3.className = "col"
+    col3.style.width = "50%"
 
     const editElem = document.createElement("div")
     editElem.id = "editor"
-    editDiv.append(editElem)
+    col3.append(editElem)
+
+    const editorOptions = document.createElement("div")
+    editorOptions.id = "editOptions"
+
+    const row1 = document.createElement("div")
+    row1.className = "row"
+
+    row1.innerHTML = `
+    <h2 >Editor Size:</h2>
+    <select id="editor-size">
+        <option>10px</option>
+        <option>12px</option>
+        <option>14px</option>
+        <option>16px</option>
+        <option>18px</option>
+        <option>20px</option>
+        <option>22px</option>
+        <option>24px</option>
+    </select>
+    `
+
+    editorOptions.append(row1)
+
+    const row2 = document.createElement("div")
+    row2.className = "row"
+
+    row2.innerHTML = `
+    <h2>Editor Theme:</h2>
+    <select id="theme">
+        <option>Ambiance</option>
+        <option>Cloud Editor Dark</option>
+        <option>Clouds Midnight</option>
+        <option>Cobalt</option>
+        <option>Github Dark</option>
+        <option>Nord Dark</option>
+        <option>One Dark</option>
+        <option>Pastel on Dark</option>
+        <option>Solarized Dark</option>
+        <option>Tomorrow Night</option>
+        <option>Tomorrow Night Blue</option>
+        <option>Tomorrow Night Bright</option>
+        <option>Tomorrow Night Eighties</option>
+
+    </select>
+    `
+
+    editorOptions.append(row2)
+
+    col3.append(editorOptions)
+
+
+    editDiv.append(col3)
+
 
     const col = document.createElement("div")
     col.className = "col"
+    col.style.paddingRight = "0"
+    col.style.paddingLeft = "0"
 
     const output = document.createElement("div")
     output.id = "output"
@@ -160,8 +219,6 @@ export function addEditor(parent, head, p, pLink, desc, prev, next) {
     const run = document.createElement("button")
     run.id = "run"
 
-    run.style.marginLeft = "10px"
-
     run.innerText = "RUN"
 
     buttons.append(run)
@@ -173,9 +230,50 @@ export function addEditor(parent, head, p, pLink, desc, prev, next) {
 
     parent.append(editDiv)
 
+    if (!localStorage.getItem("edit")) {
+        localStorage.setItem("edit", JSON.stringify({
+            fontSize: "16px",
+            theme: "ambiance"
+        }))
+    }
+
+    let dat = JSON.parse(localStorage.getItem("edit"))
+
     var editor = ace.edit("editor");
     editor.session.setMode("ace/mode/javascript");
-    editor.setTheme("ace/theme/ambiance")
+
+    const editSize = document.getElementById("editor-size")
+    const theme = document.getElementById("theme")
+
+
+    editSize.value = dat.fontSize
+    theme.value = dat.theme
+
+
+    editSize.onchange = () => {
+
+        dat.fontSize = editSize.value
+
+        editElem.style.fontSize = dat.fontSize
+
+        localStorage.setItem("edit", JSON.stringify(dat))
+        
+    }
+
+    theme.onchange = () => {
+
+        dat.theme = theme.value
+
+        editor.setTheme("ace/theme/" + dat.theme.toLowerCase().replaceAll(" ", "_"))
+
+        localStorage.setItem("edit", JSON.stringify(dat))
+        
+    }
+
+    editor.setTheme("ace/theme/" + dat.theme.toLowerCase().replaceAll(" ", "_"))
+    editElem.style.fontSize = dat.fontSize
+
+    editor.session.setUseWrapMode(true);
 
     return editor
 }

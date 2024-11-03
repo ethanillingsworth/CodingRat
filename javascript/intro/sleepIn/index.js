@@ -10,6 +10,9 @@ const name = "sleepIn"
 const parent = "intro"
 const lang = "javascript"
 
+document.title = "CodingRat Intro to JS | " + name
+
+
 const editor = addEditor(document.body, "Sleep In", "Intro to JS", "../", desc, null, "../evenOrOdd/")
 const defaultCode = `function sleepIn(weekday, vacation) {
 

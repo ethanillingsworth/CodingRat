@@ -14,7 +14,10 @@ const name = "gradeFinder"
 const parent = "intro"
 const lang = "javascript"
 
-const editor = addEditor(document.body, "Grade Finder", "gradeFinder", "../", desc, "../evenOrOdd/", null)
+document.title = "CodingRat Intro to JS | " + name
+
+
+const editor = addEditor(document.body, "Grade Finder", "Intro to JS", "../", desc, "../evenOrOdd/", "../isCapital/")
 const defaultCode = `function gradeFinder(percent) {
 
 }`
@@ -25,25 +28,45 @@ let data = getSave(name, parent, lang, editor, defaultCode)
 const testCases = [
     {
         expected: "A",
-        call: `${name}(90)`
+        call: `gradeFinder(95)` // Midpoint in the A range
+    },
+    {
+        expected: "A",
+        call: `gradeFinder(90)` // Boundary: exactly 90
     },
     {
         expected: "B",
-        call: `${name}(86)`
+        call: `gradeFinder(85)` // Midpoint in the B range
+    },
+    {
+        expected: "B",
+        call: `gradeFinder(80)` // Boundary: exactly 80
     },
     {
         expected: "C",
-        call: `${name}(72)`
+        call: `gradeFinder(75)` // Midpoint in the C range
+    },
+    {
+        expected: "C",
+        call: `gradeFinder(70)` // Boundary: exactly 70
     },
     {
         expected: "D",
-        call: `${name}(61)`
+        call: `gradeFinder(65)` // Midpoint in the D range
+    },
+    {
+        expected: "D",
+        call: `gradeFinder(60)` // Boundary: exactly 60
     },
     {
         expected: "F",
-        call: `${name}(59)`
+        call: `gradeFinder(55)` // Midpoint in the F range
     },
-]
+    {
+        expected: "F",
+        call: `gradeFinder(0)` // Extreme low value
+    }
+];
 
 runCode(testCases, editor, data, name, parent, lang)
 

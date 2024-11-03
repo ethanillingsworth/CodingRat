@@ -17,7 +17,6 @@ body {
 }
 
 * {
-    color:white;
     color-scheme: dark;
 }
 
@@ -64,7 +63,7 @@ h2, h3, p {
     margin-bottom: 5px;
 }
 
-button {
+button, select {
     width: 100px;
     background-color: var(--red);
     color: white;
@@ -72,6 +71,8 @@ button {
     border-radius: 15px;
     border: 2px solid var(--darkAccent);
     transition: all 0.25s ease-in-out;
+    font-size: 15px;
+    width: fit-content;
 }
 
 button:hover {
@@ -137,7 +138,7 @@ button:hover {
 
 #editor {
     height: 100%;
-    width: 50%;
+    width: 100%;
     font-size: large;
 }
 
@@ -149,13 +150,15 @@ button:hover {
 }
 
 #output {
-    width: 100%;
+    width: calc(100% - 20px);
     height: 100%;
 
     display: grid;
     grid-template-columns: 2fr 1fr 50px;
     grid-template-rows: repeat(10, 35px);
     margin-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 #output > * {
@@ -171,16 +174,30 @@ button:hover {
     flex-direction: column;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    place-items: center;
+}
+
 #buttons {
     height: 40px;
-    width: 100%;
+    width: calc(100% - 20px);
     display: flex;
     flex-direction: row;
     padding-top: 10px;
     padding-bottom: 10px;
+    gap: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
 
     border-top: 2px solid var(--darkAccent);
 
+}
+
+#buttons button {
+    min-width: 100px;
 }
 
 #details {
@@ -197,4 +214,20 @@ button:hover {
     place-content: center;
     font-size: x-large;
     width: 100%;
+    border-top: 2px solid var(--darkAccent);
+    padding-top: 20px;
+}
+
+#editOptions {
+    min-height: 40px;
+    padding: 10px;
+    border-top: 2px solid var(--darkAccent);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+select {
+    height: fit-content;
 }
