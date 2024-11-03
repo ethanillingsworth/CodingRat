@@ -10,7 +10,7 @@ const name = "sleepIn"
 const parent = "intro"
 const lang = "javascript"
 
-const editor = addEditor(document.body, "Sleep In", "Intro to JS", "../", desc, null, null)
+const editor = addEditor(document.body, "Sleep In", "Intro to JS", "../", desc, null, "../evenOrOdd/")
 const defaultCode = `function sleepIn(weekday, vacation) {
 
 }`
@@ -39,6 +39,10 @@ document.getElementById("run").onclick = () => {
     
     runCode(testCases, editor, data, name, parent, lang)
 
-    data = JSON.parse(localStorage.getItem('js')[parent][name])
+    data = JSON.parse(localStorage.getItem(lang)[parent][name])
 }
 
+document.getElementById("reset").onclick = () => {
+    editor.setValue(defaultCode)
+    runCode(testCases, editor, data, name, parent, lang)
+}

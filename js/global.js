@@ -148,11 +148,19 @@ export function addEditor(parent, head, p, pLink, desc, prev, next) {
 
     buttons.append(star)
 
+    const reset = document.createElement("button")
+    reset.id = "reset"
+
+    reset.style.marginLeft = "auto"
+
+    reset.innerText = "RESET"
+
+    buttons.append(reset)
 
     const run = document.createElement("button")
     run.id = "run"
 
-    run.style.marginLeft = "auto"
+    run.style.marginLeft = "10px"
 
     run.innerText = "RUN"
 
@@ -224,7 +232,7 @@ export function runCode(testCases, editor, data, name, parent, lang) {
     
 }
 
-export function getSave(name, parent, lang, editor, defaultCode, star) {
+export function getSave(name, parent, lang, editor, defaultCode, star=document.getElementById("star")) {
     let data = localStorage.getItem(lang)
     if (!data) {
         localStorage.setItem(lang, "{}")
