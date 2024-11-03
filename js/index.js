@@ -23,19 +23,40 @@ Object.keys(langs).forEach(lang => {
 
     let jData = JSON.parse(data)
 
+    
+
     langs[lang].forEach((item) => {
         let stars = []
         if(!jData[item.func]) {
             jData[item.func] = {}
         }
+
         
-        Object.values(jData[item.func]).forEach((lesson) => {
+
+        var keys = Object.keys(jData[item.func])
+
+        keys.sort((a, b) => {
+            if (a < b) {
+                return -1;
+            }
+            if (a > b) {
+                return 1;
+            }
+            return 0;
+        })
+
+
+        
+        keys.forEach((key) => {
+            var lesson = jData[item.func][key]
+            
             if (lesson.star === 1) {
                 stars.push(1)
             }
             else {
                 stars.push(0)
             }
+            
         })
 
         

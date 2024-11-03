@@ -62,11 +62,20 @@ const lessons = [
     },
     {
         name: "Rectangle or Square",
-        func: "rectOrSqaure",
+        func: "rectOrSquare",
         parent: parent,
         lang: lang,
         desc: "Check if a shape is a rectangle or square based on its length and width",
-        link: "./rectOrSqaure/",
+        link: "./rectOrSquare/",
+        sub: "(if-else)"
+    },
+    {
+        name: "Rectangle or Square 2",
+        func: "rectOrSquare2",
+        parent: parent,
+        lang: lang,
+        desc: "Check if a shape is a cube or rectangular prism based on its length, width, and height",
+        link: "./rectOrSquare2/",
         sub: "(if-else)"
     },
     {
@@ -116,6 +125,15 @@ const lessons = [
     },
 ]
 
+lessons.sort((a, b) => {
+    if (a.name < b.name) {
+        return -1;
+    }
+    if (a.name > b.name) {
+        return 1;
+    }
+    return 0;
+})
 
 lessons.forEach((e) => {
     const data = getSave(e.func, e.parent, e.lang)
