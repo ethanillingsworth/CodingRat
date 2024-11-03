@@ -1,0 +1,8 @@
+.col {
+    width: 30%;
+    border-left: 2px solid var(--darkAccent);
+    border-right: 2px solid var(--darkAccent);
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
