@@ -1,6 +1,7 @@
 :root {
     --red: rgb(165, 42, 42);
     --green: rgb(42, 165, 42);
+    --yellow: rgb(255, 191, 56);
     --darkAccent: rgb(41, 41, 41);
     --bg: rgb(22, 22, 22)
 }

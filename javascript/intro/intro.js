@@ -5,7 +5,7 @@ const grid = addGrid(document.body)
 const parent = "intro"
 const lang = "javascript"
 
-const elements = [
+const lessons = [
     {
         name: "Sleep In",
         func: "sleepIn",
@@ -18,16 +18,16 @@ const elements = [
     }
 ]
 
-
-
-elements.forEach((e) => {
+lessons.forEach((e) => {
     const data = getSave(e.func, e.parent, e.lang)
     let star = 0
 
     if (data[e.parent][e.func].star === 1) {
         star = 1
+        
     }
 
     addGridElement(grid, e.name, e.sub, e.desc, e.link, [star])
+    if (star === 1) document.getElementById(e.name).style.borderColor = "var(--yellow)"
 })
 
