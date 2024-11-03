@@ -36,6 +36,7 @@ export function addGrid(parent) {
 export function addGridElement(grid=document.querySelector(".grid"), title, sub, desc, href, stars) {
     const item = document.createElement("a")
     item.href = href
+    item.id = title
     const headingDiv = document.createElement("div")
     headingDiv.className = "hDiv"
 
@@ -188,10 +189,12 @@ function safeEval(input, test) {
     
 }
 
-export function runCode(testCases, editor) {
+export function runCode(testCases, editor, data, name, parent, lang) {
     const output = document.getElementById("output")
 
     output.innerHTML = "<h3>Expected</h3><h3>Run</h3><h3>Pass</h3>"
+    data[parent][name]["code"] = editor.getValue()
+
     testCases.forEach(test => {
         let val = undefined;
         try {
@@ -203,17 +206,56 @@ export function runCode(testCases, editor) {
         output.innerHTML += `<span>${test.call} => ${test.expected}</span>`
         output.innerHTML += `<span>${val}</span>`
         
-
+        
 
         if (val === test.expected) {
             document.getElementById("star").src = "/icons/starfill.png"
             output.innerHTML += `<span style="background-color: var(--green);"></span>`
+            data[parent][name].star = 1
         }
         else {
             output.innerHTML += `<span style="background-color: var(--red);"></span>`
 
         }
         
+        localStorage.setItem(lang, JSON.stringify(data))
+        
     });
     
+}
+
+export function getSave(name, parent, lang, editor, defaultCode, star) {
+    let data = localStorage.getItem(lang)
+    if (!data) {
+        localStorage.setItem(lang, "{}")
+        data = localStorage.getItem(lang)
+    }
+
+    let jData = JSON.parse(data)
+
+    if (!jData[parent]) {
+        jData[parent] = {}
+        localStorage.setItem(lang, JSON.stringify(jData))
+    }
+
+    if (!jData[parent][name]) {
+        jData[parent][name] = {}
+        localStorage.setItem(lang, JSON.stringify(jData))
+    }
+    if (star) {
+        if (jData[parent][name].star === 1) {
+            star.src = "/icons/starfill.png"
+        }
+    }
+
+    if (defaultCode) {
+        if (jData[parent][name].code) {
+            editor.setValue(jData[parent][name].code)
+        }
+        else {
+            editor.setValue(defaultCode)
+        }
+    }
+
+    return jData
 }
