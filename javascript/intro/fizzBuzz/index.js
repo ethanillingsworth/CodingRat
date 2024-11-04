@@ -17,7 +17,7 @@ const lang = "javascript"
 
 document.title = "CodingRat Intro to JS | " + name
 
-const editor = addEditor(document.body, "FizzBuzz", "Intro to JS", "../", desc, "../validatePass/", "../rectOrSquare/")
+const editor = addEditor(document.body, "FizzBuzz", "Intro to JS", "../", desc, "../evenOrOdd/", "../gradeFinder/")
 const defaultCode = `function fizzBuzz(num) {
 
 }`

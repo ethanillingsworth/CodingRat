@@ -13,7 +13,7 @@ const lang = "javascript"
 
 document.title = "CodingRat Intro to JS | " + name
 
-const editor = addEditor(document.body, "Even or Odd", "Intro to JS", "../", desc, "../sleepIn/", "../gradeFinder/")
+const editor = addEditor(document.body, "Even or Odd", "Intro to JS", "../", desc, "../countDigits2/", "../fizzBuzz/")
 const defaultCode = `function evenOrOdd(num) {
 
 }`

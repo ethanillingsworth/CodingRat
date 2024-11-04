@@ -17,7 +17,7 @@ const lang = "javascript"
 document.title = "CodingRat Intro to JS | " + name
 
 
-const editor = addEditor(document.body, "Grade Finder", "Intro to JS", "../", desc, "../evenOrOdd/", "../isCapital/")
+const editor = addEditor(document.body, "Grade Finder", "Intro to JS", "../", desc, "../fizzBuzz/", "../isCapital/")
 const defaultCode = `function gradeFinder(percent) {
 
 }`

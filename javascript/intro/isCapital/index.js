@@ -12,7 +12,7 @@ const lang = "javascript"
 
 document.title = "CodingRat Intro to JS | " + name
 
-const editor = addEditor(document.body, "Is Capital", "Intro to JS", "../", desc, "../gradeFinder/", "../validatePass/")
+const editor = addEditor(document.body, "Is Capital", "Intro to JS", "../", desc, "../gradeFinder/", "../productOfDigits/")
 const defaultCode = `function isCapital(str) {
 
 }`

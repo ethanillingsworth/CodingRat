@@ -106,6 +106,7 @@ button:hover {
 .grid .stars {
     display: flex;
     gap: 5px;
+    flex-wrap: wrap;
 }
 
 .grid .star {

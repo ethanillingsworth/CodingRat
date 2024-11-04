@@ -43,7 +43,7 @@ const lessons = [
         sub: "(string methods)"
     },
     {
-        name: "Password Validiation",
+        name: "Validiate Password",
         func: "validatePass",
         parent: parent,
         lang: lang,
@@ -94,7 +94,7 @@ const lessons = [
         lang: lang,
         desc: "Count the digits from a given integer",
         link: "./countDigits/",
-        sub: "(loops, vars)"
+        sub: "(loops, vars, math)"
     },
     {
         name: "Count Digits 2",
@@ -103,7 +103,7 @@ const lessons = [
         lang: lang,
         desc: "Count the digits from a given float",
         link: "./countDigits2/",
-        sub: "(loops, vars)"
+        sub: "(loops, vars, math)"
     },
     {
         name: "Product of Digits",
@@ -114,22 +114,13 @@ const lessons = [
         link: "./productOfDigits/",
         sub: "(loops, math, vars)"
     },
-    {
-        name: "Sum of Even",
-        func: "sumOfEven",
-        parent: parent,
-        lang: lang,
-        desc: "Add all of the even numbers within a range",
-        link: "./productOfDigits/",
-        sub: "(loops, math)"
-    },
 ]
 
 lessons.sort((a, b) => {
-    if (a.name < b.name) {
+    if (a.func < b.func) {
         return -1;
     }
-    if (a.name > b.name) {
+    if (a.func > b.func) {
         return 1;
     }
     return 0;

@@ -45,6 +45,7 @@ Object.keys(langs).forEach(lang => {
             return 0;
         })
 
+        console.log(keys)
 
         
         keys.forEach((key) => {

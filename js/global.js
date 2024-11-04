@@ -296,6 +296,13 @@ function safeEval(input, test) {
 }
 
 export function runCode(testCases, editor, data, name, parent, lang) {
+
+    document.onkeyup = (ev) => {
+        if (ev.ctrlKey && ev.key == "Enter") {
+            ev.preventDefault()
+            runCode(testCases, editor, data, name, parent, lang)
+        }
+    }
     const output = document.getElementById("output")
 
     output.innerHTML = "<h3>Expected</h3><h3>Run</h3><h3>Pass</h3>"
@@ -364,4 +371,16 @@ export function getSave(name, parent, lang, editor, defaultCode, star=document.g
     }
 
     return jData
+}
+
+
+window.deleteValue = function(path, removedItem) {
+    var dat = JSON.parse(localStorage.getItem(path))
+
+    delete dat[removedItem]
+
+    console.log(dat)
+
+    localStorage.setItem(path, JSON.stringify(dat))
+
 }
