@@ -23,6 +23,11 @@ function addLink(label, href) {
     back.append(link)
 }
 
+// If window size is iPad or smaller, then use JS to set screen height.
+
+let value = `${window.innerHeight}px`
+
+document.body.style.height = value;
 
 export function addGrid(parent) {
     const grid = document.createElement("div")
