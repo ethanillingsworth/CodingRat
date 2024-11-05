@@ -83,7 +83,7 @@ button:hover {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: 20px;
     margin-left: 40px;
     margin-right: 40px;
@@ -232,4 +232,28 @@ button:hover {
 
 select {
     height: fit-content;
+}
+
+
+@media screen and (max-width: 1384px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 786px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 512px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
