@@ -13,7 +13,7 @@ const lang = "javascript"
 document.title = "CodingRat Intro to JS | " + name
 
 
-const editor = addEditor(document.body, "Sleep In", "Intro to JS", "../", desc, "../shipFee/", "../sumOfEven/")
+const editor = addEditor(document.body, "Sleep In", "Intro to JS", "../", desc, "../shipFee/", "../validatePass/")
 const defaultCode = `function sleepIn(weekday, vacation) {
 
 }`

@@ -25,7 +25,7 @@ const lang = "javascript"
 
 document.title = "CodingRat Intro to JS | " + name
 
-const editor = addEditor(document.body, "Password Validation", "Intro to JS", "../", desc, "../sumOfEven/", null)
+const editor = addEditor(document.body, "Password Validation", "Intro to JS", "../", desc, "../sleepIn/", null)
 const defaultCode = `function validatePass(pass) {
 
 }`

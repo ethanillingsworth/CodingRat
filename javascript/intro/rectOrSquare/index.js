@@ -22,43 +22,43 @@ let data = getSave(name, parent, lang, editor, defaultCode)
 const testCases = [
     {
         expected: "Square",
-        call: `shapeType(5, 5)` // Both sides equal
+        call: `rectOrSquare(5, 5)` // Both sides equal
     },
     {
         expected: "Rectangle",
-        call: `shapeType(5, 10)` // Length and width are different
+        call: `rectOrSquare(5, 10)` // Length and width are different
     },
     {
         expected: "Rectangle",
-        call: `shapeType(3, 4)` // Different dimensions
+        call: `rectOrSquare(3, 4)` // Different dimensions
     },
     {
         expected: "Square",
-        call: `shapeType(100, 100)` // Large square
+        call: `rectOrSquare(100, 100)` // Large square
     },
     {
         expected: "Rectangle",
-        call: `shapeType(1, 2)` // All different dimensions
+        call: `rectOrSquare(1, 2)` // All different dimensions
     },
     {
         expected: "Invalid dimensions",
-        call: `shapeType(0, 5)` // Length is zero
+        call: `rectOrSquare(0, 5)` // Length is zero
     },
     {
         expected: "Invalid dimensions",
-        call: `shapeType(5, -10)` // Negative width
+        call: `rectOrSquare(5, -10)` // Negative width
     },
     {
         expected: "Invalid dimensions",
-        call: `shapeType(-3, -3)` // All negative
+        call: `rectOrSquare(-3, -3)` // All negative
     },
     {
         expected: "Square",
-        call: `shapeType(2, 2)` // Small square
+        call: `rectOrSquare(2, 2)` // Small square
     },
     {
         expected: "Rectangle",
-        call: `shapeType(7, 3)` // Two sides unequal
+        call: `rectOrSquare(7, 3)` // Two sides unequal
     }
 ];
 
